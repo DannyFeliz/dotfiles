@@ -1,0 +1,81 @@
+[user]
+    name = Danny Feliz
+    email = danny@mctekk.com
+[color]
+    ui = true
+    status = auto
+    branch = auto
+    interactive=auto
+    diff = auto
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = green bold
+    changed = red bold
+    untracked = magenta dim ul bold
+[alias]
+	ac = !git add -A && git commit -m
+	pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
+	ph = !git push origin $(git rev-parse --abbrev-ref HEAD)
+	pld = pull origin devel
+	phd = push origin devel
+	plm = pull origin master
+	phm = push origin master
+	cp = cherry-pick
+	all = add --all
+	st = status
+	sts = status -s
+	cl = clone
+	ci = commit
+	cim = commit -m
+	cia = commit --amend
+	co = checkout
+	cob = checkout -b
+	br = branch --all
+    	last-updated = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
+    ff = diff --color-words
+	dc = diff --cached
+    	ds = diff --stat
+	diff-color = diff --color-words
+	rb = rebase
+	rlog = reflog
+	pushall = push --recurse-submodules=on-demand
+	r = reset
+	undo-last-commit = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	undo = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+	loo = log --pretty=oneline --abbrev-commit --graph --decorat
+	lol = log --graph --pretty=format:\"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s\"
+	mod = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+	last-branch = for-each-ref --sort=-committerdate refs/heads/
+	last = branch -vv --color=always | while read; do echo -e $(git log -1 --format=%ci $(echo "_$REPLY" | awk '{print $2}' | perl -pe 's/\e\[?.*?[\@-~]//g') 2> /dev/null || git log -1 --format=%ci)" $REPLY"; done | sort -r | cut -d ' ' -f -1,4-
+	f = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\"  && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+	[core]
+	autocrlf = input
+	filemode = true
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+	mnemonicprefix = true
+[merge]
+	stat = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
