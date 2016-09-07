@@ -1,8 +1,8 @@
 [user]
-	  email = dannyfeliz08@gmail.com
-		user = DannyFeliz
-		name = Danny Feliz
-		edit = vim
+    email = dannyfeliz08@gmail.com
+    user = DannyFeliz
+    name = Danny Feliz
+    edit = vim
 [color]
     ui = true
     status = auto
