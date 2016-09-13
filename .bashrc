@@ -4,13 +4,6 @@ cd /home/
 
 
 # User specific aliases and functions
-alias runoorden='cd home/oorden-web/js/ && ./node_modules/.bin/webpack -w'
-alias runmesocom='cd /home/mesocom-crm/js && ./node_modules/.bin/webpack -w'
-alias runmesocom2='cd /home/mesocom-crm-2/js && ./node_modules/.bin/webpack -w'
-alias goapimeso='cd /home/mesocom-api/'
-alias gomeso='cd /home/mesocom-crm/js/'
-alias phalcon='php /home/phalcon-devtools/phalcon.php'
-alias processlist='mysqladmin -u root -p -i 1 processlist'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -24,15 +17,10 @@ alias vimrc='vim ~/.vimrc'
 alias editg='vim ~/.gitconfig'
 alias addPermission='chmod -R 777 $1'
 alias cls='clear'
-alias danny='cd /home/danny'
 alias net='/sbin/service network $1'
 alias editb='vim ~/.bashrc'
 alias apacheRestart='systemctl restart httpd.service'
 alias phpRestart='service php-fpm restart'
-alias aurora='cls & cd /home/aurora-manager'
-alias oorden='cls & cd /home/oorden-admin'
-alias setdesc='git branch --edit-description'
-alias branch=gb
 alias postgrestStart='sudo systemctl start postgresql'
 alias postgrestStop='sudo systemctl stop postgresql'
 alias mariaStart='systemctl start mariadb'
@@ -45,16 +33,6 @@ alias ll="ls -lha"
 alias lv='ls -F'
 alias ls='ls -F --color=auto'
 alias updateb='source ~/.bashrc'
-alias runcli='php /home/f-storyad/cli/app.php'
-alias oordencli='cd /home/oorden-cli/ & php app/cli.php cuentas daemon & php app/cli.php impuestos & php app/cli.php retenciones & php app/cli.php cuentas buscarHijos & php app/cli.php Email daemon'
-alias envstory="vim /home/storyad/.env"
- alias envapi="vim /home/storyad-api/.env"
- alias envads="vim /home/f-storyad/.env"
-
- alias gostory='cd /home/storyad'
- alias goapi='cd /home/storyad-api/'
- alias goads='cd /home/f-storyad/'
-
 
  #Git alias
  alias untrack='git update-index --assume-unchanged $1'
