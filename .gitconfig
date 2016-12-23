@@ -1,8 +1,6 @@
 [user]
-    email = dannyfeliz08@gmail.com
-    user = DannyFeliz
     name = Danny Feliz
-    edit = vim
+    email = danny@mctekk.com
 [color]
     ui = true
     status = auto
@@ -31,7 +29,6 @@
 	phd = push origin devel
 	plm = pull origin master
 	phm = push origin master
-	cp = cherry-pick
 	all = add --all
 	st = status
 	sts = status -s
@@ -70,8 +67,18 @@
 	f = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\"  && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	[core]
 	autocrlf = input
-	filemode = true
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	fileMode = false
+    pager = diff-so-fancy | less --tabs=4 -RFX
+
+     # based on: https://gist.github.com/intel352/9761288
+    show-closest-branch = rev-parse --abbrev-ref HEAD
+     # # based on:
+     # http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
+    show-closest-parent-branch = show-closest-parent-branch = !"git show-branch -a --no-color 2> /dev/null | awk -F '[]^~[]' -v current_branch=`git show-closest-branch 2> /dev/null || true` 'BEGIN { rc=1 ; if ( length( current_branch ) == 0 ) { exit } } ( ( index( $1, \"*\" ) > 0 ) && ( length( $2 ) > 0 ) && ( $2 != current_branch ) ) { print $2 ; rc=0 ; exit } END { exit rc }'"
+     cb = !git show-closest-branch
+     pb = !git show-closest-parent-branch
+
+
 [diff]
 	mnemonicprefix = true
 [merge]
@@ -81,3 +88,5 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[gc]
+	auto = 0
