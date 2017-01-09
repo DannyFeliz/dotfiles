@@ -11,7 +11,7 @@ alias editssh='vim ~/.ssh/config'
 alias editv='vim ~/.vimrc'
 alias gossh='cd ~/.ssh/'
 alias ll="ls -lha"
-alias ls='ls -F --color=auto'
+alias ls='ls -FG'
 alias phpRestart='service php-fpm restart'
 alias runprocesslist='mysqladmin -u root -p -i 1 processlist'
 alias untrack='git update-index --assume-unchanged $1'
