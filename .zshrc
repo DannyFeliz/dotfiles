@@ -2,11 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/root/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+
+# Uncomment the following line where you copy the theme "danny" in the theme
+# folder (~/.oh-my-zsh/themes/)
 ZSH_THEME="danny"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -37,7 +41,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -60,69 +64,28 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+   export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias phalcon='php /home/phalcon-devtools/phalcon.php'
-alias runprocesslist='mysqladmin -u root -p -i 1 processlist'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias go='ssh storyad'
-alias gossh='cd ~/.ssh/'
-alias edith='vim /etc/httpd/conf/httpd.conf'
-alias edithost='vim /etc/hosts'
-alias editssh='vim ~/.ssh/config'
-alias editphp='vim /etc/php.ini'
-alias vimrc='vim ~/.vimrc'
-alias editg='vim ~/.gitconfig'
-alias addPermission='chmod -R 777 $1'
-alias cls='clear'
-alias editb='vim ~/.zshrc'
-alias apacheRestart='systemctl restart httpd.service'
-alias phpRestart='service php-fpm restart'
-alias mariaStart='systemctl start mariadb'
-alias mariaStop='systemctl stop mariadb'
-alias mariaRestart='systemctl restart mariadb'
-alias mysqlStop='mariaStop'
-alias mysqlStart='mariaStart'
-alias mysqlRestart='mariaRestart'
-alias ll="ls -lha"
-alias lv='ls -F'
-alias ls='ls -F --color=auto'
-alias updateb='source ~/.zshrc'
-alias runcli='php /home/f-storyad/cli/app.php'
-alias oordencli='cd /home/oorden-cli/ & php app/cli.php Email daemon & php app/cli.php tests wizardDaemon'
-
-alias untrack='git update-index --assume-unchanged $1'
-
-timedatectl set-timezone America/Santo_Domingo
-/sbin/service ntpd stop
-ntpdate time.apple.com
-
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-eval $(ssh-agent -s)
-ssh-add ~/.ssh/id_rsa_github
+# Adds aliases if exist
+if [ -f ~/.aliases ]; then
+  . ~/.aliases
+fi
