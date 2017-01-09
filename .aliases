@@ -1,0 +1,24 @@
+alias addPermission='chmod -R 777 $1'
+alias apacheRestart='systemctl restart httpd.service'
+alias cls='clear'
+alias edita='vim ~/.aliases'
+alias editb='vim ~/.zshrc'
+alias editg='vim ~/.gitconfig'
+alias edith='vim /etc/httpd/conf/httpd.conf'
+alias edithost='vim /etc/hosts'
+alias editphp='vim /etc/php.ini'
+alias editssh='vim ~/.ssh/config'
+alias editv='vim ~/.vimrc'
+alias gossh='cd ~/.ssh/'
+alias ll="ls -lha"
+alias ls='ls -F --color=auto'
+alias phpRestart='service php-fpm restart'
+alias runprocesslist='mysqladmin -u root -p -i 1 processlist'
+alias untrack='git update-index --assume-unchanged $1'
+alias updateb='source ~/.zshrc'
+
+
+# File manager
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
