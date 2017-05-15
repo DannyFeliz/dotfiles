@@ -13,3 +13,7 @@
  * `chsh -s $(which zsh)`
  
 ##### 4. Exit and Enter :)
+
+### Exntensions
+ - https://github.com/zsh-users/zsh-autosuggestions#oh-my-zsh
+ - https://github.com/wting/autojump
