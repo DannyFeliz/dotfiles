@@ -1,5 +1,7 @@
 alias addPermission='chmod -R 777 $1'
 alias apacheRestart='systemctl restart httpd.service'
+alias nginxRestart='systemctl restart httpd.service'
+alias phpRestart='service php-fpm restart'
 alias cls='clear'
 alias edita='vim ~/.aliases'
 alias editb='vim ~/.zshrc'
@@ -12,11 +14,10 @@ alias editv='vim ~/.vimrc'
 alias gossh='cd ~/.ssh/'
 alias ll="ls -lha"
 alias ls='ls -FG'
-alias phpRestart='service php-fpm restart'
 alias runprocesslist='mysqladmin -u root -p -i 1 processlist'
 alias untrack='git update-index --assume-unchanged $1'
 alias updateb='source ~/.zshrc'
-
+alias bye='exit'
 
 # File manager
 alias cp='cp -i'
