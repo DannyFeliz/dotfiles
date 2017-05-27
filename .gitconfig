@@ -40,7 +40,8 @@
 	cob = checkout -b
 	br = branch --all
     	last-updated = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
-    ff = diff --color-words
+    	fap = fetch --all --prune
+	ff = diff --color-words
 	dc = diff --cached
     	ds = diff --stat
 	diff-color = diff --color-words
