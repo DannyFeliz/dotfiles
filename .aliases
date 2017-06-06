@@ -1,7 +1,7 @@
 alias addPermission='chmod -R 777 $1'
 alias apacheRestart='systemctl restart httpd.service'
 alias nginxRestart='systemctl restart httpd.service'
-alias phpRestart='service php-fpm restart'
+alias phpRestart='systemctl restart php-fpm.service'
 alias cls='clear'
 alias edita='vim ~/.aliases'
 alias editb='vim ~/.zshrc'
