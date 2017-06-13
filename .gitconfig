@@ -1,34 +1,30 @@
 [user]
-    name = Danny Feliz
-    email = danny@mctekk.com
+    	name = Danny Feliz
+    	email = dannyfeliz08@gmail.com
 [color]
-    ui = true
-    status = auto
-    branch = auto
-    interactive=auto
-    diff = auto
+    	ui = true
+    	status = auto
+    	branch = auto
+    	interactive=auto
+    	diff = auto
 [color "branch"]
-    current = yellow bold
-    local = green bold
-    remote = cyan bold
+    	current = yellow bold
+    	local = green bold
+    	remote = cyan bold
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+    	meta = yellow bold
+    	frag = magenta bold
+    	old = red bold
+    	new = green bold
+    	whitespace = red reverse
 [color "status"]
-    added = green bold
-    changed = red bold
-    untracked = magenta dim ul bold
+    	added = green bold
+    	changed = red bold
+    	untracked = magenta dim ul bold
 [alias]
 	ac = !git add -A && git commit -m
 	pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
 	ph = !git push origin $(git rev-parse --abbrev-ref HEAD)
-	pld = pull origin devel
-	phd = push origin devel
-	plm = pull origin master
-	phm = push origin master
 	all = add --all
 	st = status
 	sts = status -s
@@ -39,29 +35,23 @@
 	co = checkout
 	cob = checkout -b
 	br = branch --all
-    	last-updated = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
-    	fap = fetch --all --prune
+	last-updated = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
+	fap = fetch --all --prune
 	ff = diff --color-words
 	dc = diff --cached
-    	ds = diff --stat
+	ds = diff --stat
 	diff-color = diff --color-words
 	rb = rebase
 	rlog = reflog
-	pushall = push --recurse-submodules=on-demand
-	r = reset
 	undo-last-commit = reset HEAD^
 	r2 = reset HEAD^^
 	rh = reset --hard
 	undo = reset --hard
 	rh1 = reset HEAD^ --hard
 	rh2 = reset HEAD^^ --hard
-	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
 	loo = log --pretty=oneline --abbrev-commit --graph --decorat
 	lol = log --graph --pretty=format:\"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s\"
-	mod = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	last-branch = for-each-ref --sort=-committerdate refs/heads/
 	last = branch -vv --color=always | while read; do echo -e $(git log -1 --format=%ci $(echo "_$REPLY" | awk '{print $2}' | perl -pe 's/\e\[?.*?[\@-~]//g') 2> /dev/null || git log -1 --format=%ci)" $REPLY"; done | sort -r | cut -d ' ' -f -1,4-
@@ -69,18 +59,16 @@
 [core]
 	autocrlf = input
 	fileMode = false
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    	pager = diff-so-fancy | less --tabs=4 -RFX
 
-     # based on: https://gist.github.com/intel352/9761288
-    show-closest-branch = rev-parse --abbrev-ref HEAD
-     # # based on:
-     # http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
-    show-closest-parent-branch = show-closest-parent-branch = !"git show-branch -a --no-color 2> /dev/null | awk -F '[]^~[]' -v current_branch=`git show-closest-branch 2> /dev/null || true` 'BEGIN { rc=1 ; if ( length( current_branch ) == 0 ) { exit } } ( ( index( $1, \"*\" ) > 0 ) && ( length( $2 ) > 0 ) && ( $2 != current_branch ) ) { print $2 ; rc=0 ; exit } END { exit rc }'"
-    cb = !git show-closest-branch
-    pb = !git show-closest-parent-branch
+     	# based on: https://gist.github.com/intel352/9761288
+    	show-closest-branch = rev-parse --abbrev-ref HEAD
+     	# # based on:
+     	# http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
+    	show-closest-parent-branch = show-closest-parent-branch = !"git show-branch -a --no-color 2> /dev/null | awk -F '[]^~[]' -v current_branch=`git show-closest-branch 2> /dev/null || true` 'BEGIN { rc=1 ; if ( length( current_branch ) == 0 ) { exit } } ( ( index( $1, \"*\" ) > 0 ) && ( length( $2 ) > 0 ) && ( $2 != current_branch ) ) { print $2 ; rc=0 ; exit } END { exit rc }'"
+    	cb = !git show-closest-branch
+    	pb = !git show-closest-parent-branch
 	editor = vim
-
-
 [diff]
 	mnemonicprefix = true
 [merge]
