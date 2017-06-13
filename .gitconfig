@@ -92,3 +92,5 @@
 	newHighlight = green bold 22
 [gc]
 	auto = 0
+[help]
+	autocorrect = 1
