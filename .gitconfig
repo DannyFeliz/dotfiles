@@ -52,7 +52,7 @@
     rh1 = reset HEAD^ --hard
     rh2 = reset HEAD^^ --hard
     rlog = reflog
-    st = status -s
+    st = status
     take-ours = merge -s recursive -X ours
     take-theirs = merge -s recursive -X theirs
     undo = reset --hard
