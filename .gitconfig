@@ -1,84 +1,107 @@
 [user]
-    	name = Danny Feliz
-    	email = dannyfeliz08@gmail.com
+    name = Danny Feliz
+    email = dannyfeliz08@gmail.com
 [color]
-    	ui = true
-    	status = auto
-    	branch = auto
-    	interactive=auto
-    	diff = auto
+    ui = true
+    status = auto
+    branch = auto
+    interactive=auto
+    diff = auto
 [color "branch"]
-    	current = yellow bold
-    	local = green bold
-    	remote = cyan bold
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
 [color "diff"]
-    	meta = yellow bold
-    	frag = magenta bold
-    	old = red bold
-    	new = green bold
-    	whitespace = red reverse
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 [color "status"]
-    	added = green bold
-    	changed = red bold
-    	untracked = magenta dim ul bold
+    added = green bold
+    changed = red bold
+    untracked = magenta dim ul bold
 [alias]
-	ac = !git add -A && git commit -m
-	pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
-	ph = !git push origin $(git rev-parse --abbrev-ref HEAD)
-	all = add --all
-	st = status
-	sts = status -s
-	cl = clone
-	ci = commit
-	cim = commit -m
-	cia = commit --amend
-	co = checkout
-	cob = checkout -b
-	br = branch --all
-	last-updated = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
-	fap = fetch --all --prune
-	ff = diff --color-words
-	dc = diff --cached
-	ds = diff --stat
-	diff-color = diff --color-words
-	rb = rebase
-	rlog = reflog
-	undo-last-commit = reset HEAD^
-	r2 = reset HEAD^^
-	rh = reset --hard
-	undo = reset --hard
-	rh1 = reset HEAD^ --hard
-	rh2 = reset HEAD^^ --hard
-	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
-	loo = log --pretty=oneline --abbrev-commit --graph --decorat
-	lol = log --graph --pretty=format:\"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s\"
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
-	last-branch = for-each-ref --sort=-committerdate refs/heads/
-	last = branch -vv --color=always | while read; do echo -e $(git log -1 --format=%ci $(echo "_$REPLY" | awk '{print $2}' | perl -pe 's/\e\[?.*?[\@-~]//g') 2> /dev/null || git log -1 --format=%ci)" $REPLY"; done | sort -r | cut -d ' ' -f -1,4-
-	f = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\"  && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+    ac = !git add -A && git commit -m
+    pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
+    ph = !git push origin $(git rev-parse --abbrev-ref HEAD)
+    all = add --all
+    st = status -s
+    cl = clone
+    ci = commit
+    cim = commit -m
+    cia = commit --amend
+    co = checkout
+    cob = checkout -b
+    br = branch --all
+    ff = diff --color-words
+    dc = diff --cached
+    ds = diff --stat
+    diff-color = diff --color-words
+    rb = rebase
+    rlog = reflog
+    pushall = push --recurse-submodules=on-demand
+    undo-last-commit = reset HEAD^
+    undo = reset --hard
+    r = reset
+    rh = reset --hard
+    rh1 = reset HEAD^ --hard
+    rh2 = reset HEAD^^ --hard
+    ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+    ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+    loo = log --pretty=oneline --abbrev-commit --graph --decorat
+    lol = log --graph --pretty=format:\"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s\"
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+    last-branch = for-each-ref --sort=-committerdate refs/heads/
+    last-updated = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
+    f = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\"  && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+    take-theirs = merge -s recursive -X theirs
+    take-ours = merge -s recursive -X ours
 [core]
-	autocrlf = input
-	fileMode = false
-    	pager = diff-so-fancy | less --tabs=4 -RFX
-
-     	# based on: https://gist.github.com/intel352/9761288
-    	show-closest-branch = rev-parse --abbrev-ref HEAD
-     	# # based on:
-     	# http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
-    	show-closest-parent-branch = show-closest-parent-branch = !"git show-branch -a --no-color 2> /dev/null | awk -F '[]^~[]' -v current_branch=`git show-closest-branch 2> /dev/null || true` 'BEGIN { rc=1 ; if ( length( current_branch ) == 0 ) { exit } } ( ( index( $1, \"*\" ) > 0 ) && ( length( $2 ) > 0 ) && ( $2 != current_branch ) ) { print $2 ; rc=0 ; exit } END { exit rc }'"
-    	cb = !git show-closest-branch
-    	pb = !git show-closest-parent-branch
-	editor = vim
+    autocrlf = input
+    filemode = false
+    pager = diff-so-fancy | less --tabs=4 -RFX
+    editor = vim
+    excludesfile = ~/.gitignore
 [diff]
-	mnemonicprefix = true
+    mnemonicprefix = true
+    # Detect copies as well as renames
+    renames = copies
+    # Enable an experimental heuristic that shifts the hunk boundary in an
+    # attempt to make the resulting patch easier to read.
+    indentHeuristic = true
 [merge]
-	stat = true
+    stat = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [gc]
-	auto = 0
+    auto = 0
 [help]
-	autocorrect = 1
+    # Automatically correct and execute mistyped commands
+    autocorrect = 1
+
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+[push]
+    # Use the Git 1.x.x default to avoid errors on machines with old Git
+    # installations. To use `simple` instead, add this to your `~/.extra` file:
+    # `git config --global push.default simple`. See http://git.io/mMah-w.
+    default = matching
+    # Make `git push` push relevant annotated tags when pushing branches out.
+    followTags = true
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+    insteadOf = "github:"
+[url "git@gist.github.com:"]
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+    insteadOf = "gist:"
