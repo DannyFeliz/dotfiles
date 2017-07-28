@@ -57,6 +57,7 @@
     take-theirs = merge -s recursive -X theirs
     undo = reset --hard
     undo-last-commit = reset HEAD^
+    chk = diff --check
 [core]
     autocrlf = input
     filemode = false
