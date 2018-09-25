@@ -1,4 +1,5 @@
 alias addPermission='chmod -R 777 $1'
+alias dbranch='git branch --merged | grep -v \* | xargs git branch -D'
 alias apacheRestart='systemctl restart httpd.service'
 alias nginxRestart='systemctl restart httpd.service'
 alias phpRestart='systemctl restart php-fpm.service'
