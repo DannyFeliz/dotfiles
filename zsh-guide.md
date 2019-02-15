@@ -15,7 +15,7 @@
 ##### 4. Exit and Enter :)
 
 ### Exntensions
- - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions#installation)
+ - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
  - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
  - [autojump](https://github.com/wting/autojump)
  - [antigen](https://github.com/zsh-users/antigen)
