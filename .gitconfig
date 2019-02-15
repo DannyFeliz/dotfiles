@@ -73,11 +73,6 @@
     renames = copies
 [merge]
     stat = true
-[color "diff-highlight"]
-    newHighlight = green bold 22
-    newNormal = green bold
-    oldHighlight = red bold 52
-    oldNormal = red bold
 [gc]
     auto = 0
 [help]
