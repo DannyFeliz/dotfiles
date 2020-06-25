@@ -10,9 +10,10 @@
 - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 ##### 3. Set as default
- * `chsh -s $(which zsh)`
+ - `chsh -s $(which zsh)`
  
-##### 4. Exit and Enter :)
+##### 4. Reload `.zshrc`
+- `source ~/.zshrc` or open a new terminal tab/window to see changes.
 
 ### Extensions
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
