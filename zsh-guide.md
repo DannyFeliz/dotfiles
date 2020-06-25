@@ -28,7 +28,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sudo apt-get install autojump
 ```
 
-
-Go to `vim ~/.zshrc` and replace the plugin list with this
+Run `vim ~/.zshrc` and replace the plugin list with this
 
 `plugins=(git zsh-autosuggestions zsh-syntax-highlighting autojump)`
