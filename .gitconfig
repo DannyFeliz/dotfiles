@@ -1,3 +1,8 @@
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [user]
     email = dannyfeliz08@gmail.com
     name = Danny Feliz
@@ -18,9 +23,10 @@
     old = red bold
     whitespace = red reverse
 [color "status"]
-    added = green bold
-    changed = red bold
-    untracked = magenta dim ul bold
+  added = green bold
+  changed = red bold strike
+  untracked = cyan
+  branch = yellow black bold ul
 [alias]
     ac = !git add -A && git commit -m
     all = add --all
@@ -34,7 +40,6 @@
     dc = diff --cached
     diff-color = diff --color-words
     ds = diff --stat
-    f = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\"  && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
     ff = diff --color-words
     last-branch = for-each-ref --sort=-committerdate refs/heads/
     last-updated = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
@@ -55,22 +60,25 @@
     st = status
     take-ours = merge -s recursive -X ours
     take-theirs = merge -s recursive -X theirs
-    undo = reset --hard
     undo-last-commit = reset HEAD^
+    undo = reset HEAD^
     chk = diff --check
 [core]
-    autocrlf = input
     filemode = false
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
     editor = vim
-    excludesfile = ~/.gitignore
+[core]
+    pager = delta
+    autocrlf = false
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+[interactive]
+    diffFilter = delta --color-only
 [diff]
-    # Enable an experimental heuristic that shifts the hunk boundary in an
-    # attempt to make the resulting patch easier to read.
-    indentHeuristic = true
-    mnemonicprefix = true
-    # Detect copies as well as renames
-    renames = copies
+    colorMoved = default
 [merge]
     stat = true
 [gc]
